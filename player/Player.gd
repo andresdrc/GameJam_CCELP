@@ -62,7 +62,7 @@ func _process(delta):
 		t = 0
 		$Flecha.rotation_degrees = -90
 		ocultar_puntos()
-		direccion += self.global_position.direction_to(puntos[9].global_position) * fuerza_salto * 3
+		direccion += self.global_position.direction_to(puntos[9].global_position) * fuerza_salto * 6
 		print(direccion)
 		
 		stop = false
@@ -95,9 +95,9 @@ func mostrar_puntos():
 		
 		#APUNTAR MANUAL
 		if Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_right"):
-			angulo_salto = lerp_angle(angulo_salto, angulo_salto + 0.08, 0.01)
+			angulo_salto = lerp_angle(angulo_salto, angulo_salto + 0.1, 0.05)
 		if  Input.is_action_pressed("ui_left")or Input.is_action_pressed("ui_down"):
-			angulo_salto = lerp_angle(angulo_salto, angulo_salto - 0.08, 0.01)
+			angulo_salto = lerp_angle(angulo_salto, angulo_salto - 0.1, 0.05)
 			
 		i.position.x = (fuerza_salto/4.7 * cos(angulo_salto) ) * t
 		i.position.y = (fuerza_salto/4.7 * sin(angulo_salto) * t) - (-gravedad/2) * t * t
