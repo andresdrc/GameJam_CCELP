@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://player/Player.gd" type="Script" id=1]
+[ext_resource path="res://player/WhatsApp Image 2022-06-15 at 10.30.05 PM.jpeg" type="Texture" id=2]
+[ext_resource path="res://player/arrow.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 16.0
+
+[node name="Player" type="KinematicBody2D" groups=["player"]]
+script = ExtResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.6, 0.6 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Flecha" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.0288889, 0.0288889 )
+texture = ExtResource( 3 )
+offset = Vector2( 1000, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
