@@ -19,7 +19,7 @@ tile_data = PoolIntArray( 458943, 1, 0, 458944, 13, 0, 458945, 13, 0, 458949, 8,
 [node name="ParallaxBackground" parent="." instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 61, 543 )
+position = Vector2( 499, 438 )
 fuerza_salto = 175
 
 [node name="enemy" parent="." instance=ExtResource( 4 )]
