@@ -14,6 +14,10 @@ config/name="GameJam_CCELP"
 run/main_scene="res://parallax_efecto/ParallaxBackground.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Checkpoints="*res://checkpoint/Checkpoints.gd"
+
 [input]
 
 salto_a={
