@@ -26,6 +26,11 @@ var camara_zoom_normal = Vector2(0.5, 0.5)
 var camara_zoom_out = Vector2(1,1)
 var zoom = false
 
+var cant_vidas = 3
+var ui_juego
+var cant_vida_max = 5
+
+
 func _ready():
 	$Flecha.rotation_degrees = -90
 	
@@ -35,7 +40,8 @@ func _ready():
 		add_child(puntos[i])
 	
 	camara = get_parent().get_node("Camera2D")
-
+	
+	ui_juego = get_parent().get_node("UI_videojuego/Control")
 
 func _physics_process(delta):
 	
@@ -135,3 +141,19 @@ func zoom_out_camara(switch : bool):
 		camara.zoom.x = lerp(camara.zoom.x, camara_zoom_normal.x, 0.01)
 		camara.zoom.y = lerp(camara.zoom.y, camara_zoom_normal.y, 0.01)
 
+
+func actualizar_vida(cant : int):
+	cant_vidas = cant
+
+
+func _on_Area2D_area_entered(area):
+	if area.is_in_group("enemigo"):
+		actualizar_vida( cant_vidas -1)
+		print(cant_vidas)
+		ui_juego.actualizar_cant_vidas(cant_vidas)
+		
+	if area.is_in_group("vida"):
+		if cant_vidas < cant_vida_max:
+			actualizar_vida( cant_vidas + 1)
+			print("cant v: ", cant_vidas)
+			ui_juego.actualizar_cant_vidas(cant_vidas)

@@ -11,8 +11,13 @@ config_version=4
 [application]
 
 config/name="GameJam_CCELP"
-run/main_scene="res://prueba/mundo.tscn"
+run/main_scene="res://menu_inicio/Menu_inicio.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1336
+window/size/height=768
 
 [input]
 
