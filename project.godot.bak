@@ -11,19 +11,17 @@ config_version=4
 [application]
 
 config/name="GameJam_CCELP"
+<<<<<<< HEAD
 run/main_scene="res://menu_inicio/Menu_inicio.tscn"
+=======
+run/main_scene="res://parallax_efecto/ParallaxBackground.tscn"
+>>>>>>> 907b7db6712af93e39942837be74ff8de23297f7
 config/icon="res://icon.png"
-
 
 [display]
 
 window/size/width=1336
 window/size/height=768
-
-[autoload]
-
-Checkpoints="*res://checkpoint/Checkpoints.gd"
-
 
 [input]
 
