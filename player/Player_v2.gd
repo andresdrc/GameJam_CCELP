@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 var gravedad = 10
 var direccion = Vector2.ZERO
-var velocidad = 300
+var velocidad = 150
 
 var point = preload("res://player/punto.tscn")
 var puntos = []
@@ -39,9 +39,9 @@ func _ready():
 		puntos[i].visible = false
 		add_child(puntos[i])
 	
-	camara = get_parent().get_node("Camera2D")
-	
+	camara = get_parent().get_node("Camera2D")	
 	ui_juego = get_parent().get_node("UI_videojuego/Control")
+
 
 func _physics_process(delta):
 	
