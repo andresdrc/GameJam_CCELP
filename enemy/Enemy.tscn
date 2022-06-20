@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://enemy.png" type="Texture" id=1]
 [ext_resource path="res://enemy/Enemy.gd" type="Script" id=2]
+[ext_resource path="res://enemy/ColisionDead.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 22.0143
-height = 27.4
+height = 28.9824
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32.2196, 32.0084 )
 
 [node name="Enemy" type="KinematicBody2D"]
 scale = Vector2( 0.993183, 1.01536 )
@@ -18,3 +22,13 @@ texture = ExtResource( 1 )
 position = Vector2( -1, 0 )
 scale = Vector2( 1.36275, 0.86332 )
 shape = SubResource( 1 )
+
+[node name="ColisionDead" type="Area2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColisionDead"]
+position = Vector2( 2.46056e-06, -0.492439 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="ColisionDead" to="ColisionDead" method="_on_ColisionDead_body_entered"]
