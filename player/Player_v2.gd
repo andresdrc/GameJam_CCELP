@@ -29,6 +29,11 @@ var zoom = false
 var cant_vidas = 3
 var ui_juego
 var cant_vida_max = 5
+var caida_salto = false
+
+var salto_largo = false
+
+var sistema_comentarios
 
 
 func _ready():
@@ -42,6 +47,8 @@ func _ready():
 	camara = get_parent().get_node("Camera2D")
 	
 	ui_juego = get_parent().get_node("UI_videojuego/Control")
+	
+	sistema_comentarios = get_parent().get_node("Sistema_comentarios")
 
 func _physics_process(delta):
 	
@@ -69,23 +76,69 @@ func _process(delta):
 		
 		salto_a = true
 	
-	if Input.is_action_pressed("salto_b"):
+	if Input.is_action_pressed("salto_b") and is_on_floor() and !caida_salto:
 		mostrar_puntos()
 		apuntando = true
 		$Flecha.visible = true
 		zoom = true
 		
+		caida_salto = false
+	
 	if Input.is_action_just_released("salto_b") and is_on_floor():
+		if !caida_salto:
+		
+			$Flecha.rotation_degrees = -90
+			ocultar_puntos()
+			direccion = self.global_position.direction_to(puntos[9].global_position).normalized() * fuerza_salto * 2
+			direccion += Vector2(0,-salto_b_altura)
+			apuntando = false
+			salto_a = false
+			$Flecha.visible = false
+			angulo_salto = deg2rad(-90)
+			
+			zoom = false
+			
+			salto_largo = true
+		else:
+			caida_salto = false
+			
+	if Input.is_action_just_released("salto_b") and !is_on_floor() and caida_salto:
+		caida_salto = false
+	
+	if apuntando and !is_on_floor():
 		$Flecha.rotation_degrees = -90
 		ocultar_puntos()
-		direccion = self.global_position.direction_to(puntos[9].global_position).normalized() * fuerza_salto * 2
-		direccion += Vector2(0,-salto_b_altura)
 		apuntando = false
 		salto_a = false
 		$Flecha.visible = false
 		angulo_salto = deg2rad(-90)
 		
 		zoom = false
+		
+		caida_salto = true
+	
+	
+	
+	if direccion.x == 0 and !apuntando:
+		print("PUSH")
+		$AnimatedSprite.play("push")
+		$AnimatedSprite.flip_h = false
+	if direccion.x > 10 and direccion.x < 290 and is_on_floor():
+		$AnimatedSprite.play("walk")
+		$AnimatedSprite.flip_h = false
+	if direccion.x > 290 and is_on_floor():
+		$AnimatedSprite.play("run")
+		$AnimatedSprite.flip_h = false
+	if direccion.x < 60 and direccion.x > -60 and apuntando and is_on_floor() and apuntando:
+		$AnimatedSprite.play("idle")
+		$AnimatedSprite.flip_h = false
+	if !is_on_floor() and direccion.x > 0:
+		$AnimatedSprite.play("jump")
+	if !is_on_floor() and direccion.x < 0:
+		$AnimatedSprite.flip_h = true
+		$AnimatedSprite.play("jump")
+	print($AnimatedSprite.animation)
+
 	
 	camara.global_position.x = lerp(camara.global_position.x, self.global_position.x + 100, 0.08)
 	camara.global_position.y = lerp(camara.global_position.y, self.global_position.y, 0.05)
@@ -157,3 +210,8 @@ func _on_Area2D_area_entered(area):
 			actualizar_vida( cant_vidas + 1)
 			print("cant v: ", cant_vidas)
 			ui_juego.actualizar_cant_vidas(cant_vidas)
+	
+	if area.is_in_group("comentario_1"):
+		sistema_comentarios.mostrando_comentarios = true
+		sistema_comentarios.mostrar_comentario("inicio")
+		get_tree().paused = true
