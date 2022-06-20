@@ -8,23 +8,19 @@
 radius = 16.0
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 18.0
+radius = 24.0
+height = 26.0
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "walk",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "push",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
 "name": "jump",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "walk",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -35,6 +31,11 @@ animations = [ {
 "frames": [  ],
 "loop": true,
 "name": "jump1",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "push",
 "speed": 5.0
 }, {
 "frames": [  ],

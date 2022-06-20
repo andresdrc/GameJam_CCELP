@@ -11,7 +11,7 @@ height = 28.9824
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32.2196, 32.0084 )
 
-[node name="Enemy" type="KinematicBody2D"]
+[node name="Enemy" type="KinematicBody2D" groups=["enemigo"]]
 scale = Vector2( 0.993183, 1.01536 )
 script = ExtResource( 2 )
 
@@ -23,12 +23,11 @@ position = Vector2( -1, 0 )
 scale = Vector2( 1.36275, 0.86332 )
 shape = SubResource( 1 )
 
-[node name="ColisionDead" type="Area2D" parent="."]
+[node name="ColisionDead" type="Area2D" parent="." groups=["enemigo"]]
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColisionDead"]
 position = Vector2( 2.46056e-06, -0.492439 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 2 )
 
 [connection signal="body_entered" from="ColisionDead" to="ColisionDead" method="_on_ColisionDead_body_entered"]
