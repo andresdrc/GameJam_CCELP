@@ -109,14 +109,14 @@ height = 54.8519
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 41.2814, 44.3193 )
 
-[node name="Enemy" type="KinematicBody2D"]
+[node name="Enemy" type="KinematicBody2D" groups=["body_enemigo"]]
 scale = Vector2( 0.993183, 1.01536 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 1.78632, 1.78632 )
 frames = SubResource( 21 )
-frame = 14
+frame = 16
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

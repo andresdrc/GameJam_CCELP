@@ -33,13 +33,15 @@ var caida_salto = false
 
 var salto_largo = false
 
+
 var sistema_comentarios
 
-var vel_apuntar = 0.026
+var vel_apuntar = 0.005
 
 var sprite_estrellas
 
-var salto_largo_activado = false
+export var salto_corto_activado = false
+export var salto_largo_activado = false
 
 
 func _ready():
@@ -60,28 +62,30 @@ func _ready():
 
 func _physics_process(delta):
 	
-	direccion = move_and_slide_with_snap(direccion, Vector2.DOWN, Vector2.UP)
+	direccion = move_and_slide_with_snap(direccion, Vector2.DOWN, Vector2.UP, false, 4,deg2rad(80),true)
 	
 	if is_on_floor() and !apuntando:
 		direccion.x = lerp(direccion.x, velocidad, 0.03)
-	
+
 	if apuntando:
 		direccion.x = lerp(direccion.x, 0, 0.09)
 	
 	if !is_on_floor():
 		direccion.y += gravedad
 		if salto_a or (direccion.x > -1 and direccion.x < 1) : 
+#		if salto_a or (direccion.x == 4.5) :
 			direccion.x = lerp(direccion.x, velocidad, 0.005 * (velocidad/7))
-	
-	if !is_on_floor() and direccion.x < (velocidad * 0.02) and direccion.x > -(velocidad * 0.02):
-		direccion.x = lerp(direccion.x, velocidad, 0.1)
 
+#	if !is_on_floor() and direccion.x < (velocidad * 0.02) and direccion.x > -(velocidad * 0.02):
+	if !is_on_floor() and direccion.x == 4.5:
+		direccion.x = lerp(direccion.x, velocidad, 0.1)
+		print(direccion.x)
 
 func _process(delta):
 	
 	zoom_out_camara(zoom)
 	
-	if Input.is_action_just_pressed("salto_a") and is_on_floor():
+	if Input.is_action_just_pressed("salto_a") and is_on_floor() and salto_corto_activado:
 		direccion = Vector2(1,-1) * fuerza_salto 
 		direccion.x -= (salto_a_distancia* 10)
 		
@@ -225,7 +229,7 @@ func _on_Area2D_area_entered(area):
 	if area.is_in_group("vida"):
 		if cant_vidas < cant_vida_max:
 			actualizar_vida( cant_vidas + 1)
-			print("cant v: ", cant_vidas)
+			area.queue_free()
 			ui_juego.actualizar_cant_vidas(cant_vidas)
 	if area.is_in_group("aviso_estrellas"):
 			sprite_estrellas.visible = true
@@ -234,6 +238,7 @@ func _on_Area2D_area_entered(area):
 		sistema_comentarios.mostrando_comentarios = true
 		sistema_comentarios.mostrar_comentario("tutorial_1")
 		area.queue_free()
+		salto_corto_activado = true
 		get_tree().paused = true
 	if area.is_in_group("tutorial_2"):
 		sistema_comentarios.mostrando_comentarios = true
@@ -251,15 +256,18 @@ func _on_Area2D_area_entered(area):
 		sistema_comentarios.mostrar_comentario("enemigo_comentario")
 		area.queue_free()
 		get_tree().paused = true
-	if area.is_in_group("victoria"):
+	if area.is_in_group("victoria_1"):
 		sistema_comentarios.mostrando_comentarios = true
-		sistema_comentarios.mostrar_comentario("victoria")
+		sistema_comentarios.mostrar_comentario("victoria_1")
 		area.queue_free()
+		get_tree().paused = true
 	if area.is_in_group("mensaje_final"):
 		sistema_comentarios.mostrando_comentarios = true
 		sistema_comentarios.mostrar_comentario("mensaje_final")
 		area.queue_free()
 		get_tree().paused = true
+	if area.is_in_group("fin_nivel_1"):
+		get_tree().change_scene("res://mundo/mundo_2/Mundo_2.tscn")
 
 func _on_Area2D_area_exited(area):
 	if area.is_in_group("aviso_estrellas"):

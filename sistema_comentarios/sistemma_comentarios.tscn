@@ -94,7 +94,7 @@ rect_min_size = Vector2( 284, 131 )
 custom_constants/separation = 19
 
 [node name="TextureRect" type="TextureRect" parent="Control/MarginContainer2/HBoxContainer"]
-margin_right = 69.0
+margin_right = 116.0
 margin_bottom = 131.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -103,9 +103,9 @@ expand = true
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="Control/MarginContainer2/HBoxContainer"]
-margin_left = 88.0
+margin_left = 135.0
 margin_top = 50.0
 margin_right = 284.0
 margin_bottom = 81.0
 theme = ExtResource( 4 )
-text = "Continuar :  SALTAR"
+text = "Continuar :   Z x2"

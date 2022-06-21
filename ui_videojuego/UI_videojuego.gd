@@ -34,8 +34,11 @@ func actualizar_cant_vidas(cant : int):
 	if cant <= 5:
 #		print("llego: ", cant)
 		if cant <= 0:
-#			print("REINICIAR JUEGO")
-			get_tree().change_scene("res://menu_inicio/Menu_inicio.tscn")
+			match Checkpoints.nivel:
+				1:
+					get_tree().change_scene("res://menu_inicio/Menu_inicio.tscn")
+				2:
+					get_tree().change_scene("res://mundo/mundo_2/Mundo_2.tscn")
 		
 		for i in vect_vidas:
 			i.visible = false

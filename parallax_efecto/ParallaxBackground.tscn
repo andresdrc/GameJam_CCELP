@@ -14,7 +14,7 @@ script = ExtResource( 2 )
 [node name="Fondo" type="ParallaxLayer" parent="."]
 position = Vector2( -19, -96 )
 motion_scale = Vector2( 0.3, 1 )
-motion_mirroring = Vector2( 1920, 0 )
+motion_mirroring = Vector2( 1910, 0 )
 
 [node name="Sprite" type="Sprite" parent="Fondo"]
 position = Vector2( 983, 266 )

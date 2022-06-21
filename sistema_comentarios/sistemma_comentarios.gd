@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 var comentarios = {
-"inicio" : "Hola soy Rainy, una aventurera de otro mundo. Andaba en medio de una exploración y de pronto una luz apareció frente a mi. Era un portal.Una energía extraña me rodeo y cuando me di cuenta estaba cayendo. Ahora estoy aquí. Me pregunto a dónde me llevará esta nueva aventura.",
+"inicio" : "Hola soy Rainy, una aventurera de otro mundo. Andaba en medio de una exploración y de pronto una luz apareció frente a mi. Era un portal. Una energía extraña me rodeo y cuando me di cuenta estaba cayendo. Ahora estoy aquí. Me pregunto a dónde me llevará esta nueva aventura.",
 "sale_portal" : "Me siento diferente… ¿me veo diferente? No importa. Este lugar se ve interesante.",
 "salto_alto" : "Esto se está complicando, en hora de saltar seriamente.",
 "enemigo_comentario" : "¿Amigo o enemigo?",
@@ -26,26 +26,31 @@ export var letra_x_seg = 15
 
 var mostrando_comentarios = false
 
+var contador_boton = 0
+
 func mostrar_comentario(comentario : String):
 	$Control.visible = true
 	dialogo(comentario)
 
 
 func _process(delta):
-	if Input.is_action_just_pressed("salto_a") and mostrando_comentarios:
-		get_tree().paused = false
-		$Control.visible = false
+	if Input.is_action_just_pressed("salto_a") and mostrando_comentarios and get_tree().paused:
+		contador_boton += 1
+		if contador_boton >= 2 :
+			get_tree().paused = false
+			$Control.visible = false
+			contador_boton = 0
 
 
 func dialogo(comentario : String):
 	rich_text.bbcode_text = comentarios[comentario]
-	duracion_tween =  comentarios[comentario].length() / letra_x_seg
-#	print(comentarios[comentario].length())
-#	print(duracion_tween)
+#	duracion_tween =  comentarios[comentario].length() / letra_x_seg
+	duracion_tween =  2
 	
 	tween.interpolate_property(
 		rich_text, "percent_visible", 0, 1 , duracion_tween,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
 	)
+	print(rich_text.percent_visible)
 	tween.start()
 	
