@@ -111,7 +111,7 @@ tile_data = PoolIntArray( 331, 1, 0, 332, 13, 0, 333, 13, 0, 334, 13, 0, 335, 13
 [node name="ParallaxBackground" parent="." instance=ExtResource( 1 )]
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( -736, 106 )
+position = Vector2( 4854, 354 )
 apunte_automatico = false
 
 [node name="Enemy" parent="." groups=["enemigo"] instance=ExtResource( 2 )]
@@ -414,26 +414,22 @@ position = Vector2( -377, 478 )
 position = Vector2( 195, 305 )
 scale = Vector2( 0.733333, 0.733333 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 
 [node name="SpriteX" type="AnimatedSprite" parent="."]
 position = Vector2( 5114, 305 )
 scale = Vector2( 0.766655, 0.766655 )
 frames = SubResource( 8 )
-frame = 1
 playing = true
 
 [node name="Sprite_fi" type="AnimatedSprite" parent="."]
 position = Vector2( 5057, 306 )
 scale = Vector2( 0.766655, 0.766655 )
 frames = SubResource( 15 )
-frame = 1
 playing = true
 
 [node name="Sprite_fd" type="AnimatedSprite" parent="."]
 position = Vector2( 5174, 305 )
 scale = Vector2( 0.766655, 0.766655 )
 frames = SubResource( 18 )
-frame = 1
 playing = true

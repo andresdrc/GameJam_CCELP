@@ -36,7 +36,7 @@ var salto_largo = false
 
 var sistema_comentarios
 
-var vel_apuntar = 0.005
+var vel_apuntar = 0.05
 
 var sprite_estrellas
 

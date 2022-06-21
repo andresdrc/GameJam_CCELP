@@ -336,7 +336,6 @@ script = ExtResource( 1 )
 visible = false
 position = Vector2( 9, 0 )
 frames = SubResource( 57 )
-frame = 2
 playing = true
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -360,6 +359,7 @@ shape = SubResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
 animation = "jump"
+frame = 2
 playing = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
