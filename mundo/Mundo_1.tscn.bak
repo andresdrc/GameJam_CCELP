@@ -1,14 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://mundo/tiles/tilesNuevos.tres" type="TileSet" id=1]
+[ext_resource path="res://Mundo/tiles/tilesNuevos.tres" type="TileSet" id=1]
 [ext_resource path="res://Parallax_efecto/ParallaxBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://enemy/Enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://zona_muerte/ZonaDeMuerte.tscn" type="PackedScene" id=5]
 [ext_resource path="res://mundo/Mundo_1.gd" type="Script" id=6]
 [ext_resource path="res://checkpoint/CheckpointStar.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Sistema_comentarios/sistemma_comentarios.tscn" type="PackedScene" id=8]
-[ext_resource path="res://UI_videojuego/UI_videojuego.tscn" type="PackedScene" id=9]
 
 [node name="Mundo_1" type="Node2D"]
 position = Vector2( 19, -2 )
@@ -62,7 +60,3 @@ position = Vector2( 7170, 20 )
 
 [node name="CheckpointStar5" parent="." instance=ExtResource( 7 )]
 position = Vector2( 9589, 475 )
-
-[node name="Sistema_comentarios" parent="." instance=ExtResource( 8 )]
-
-[node name="UI_videojuego" parent="." instance=ExtResource( 9 )]

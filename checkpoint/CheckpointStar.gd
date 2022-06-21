@@ -6,3 +6,4 @@ func _ready():
 
 func _on_CheckpointStar_body_entered(body):
 	Checkpoints.last_position = global_position
+	get_parent().get_node("Camera2D").global_position = Checkpoints.last_position

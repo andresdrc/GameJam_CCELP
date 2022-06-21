@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/plant.png-a1374b39d22a66c75adc9c8fe3eb2fd3.stex"
+path="res://.import/plant.png-509fff763bff4f041d03a1f422275e25.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://parallax_efecto/bosque_noche/plant.png"
-dest_files=[ "res://.import/plant.png-a1374b39d22a66c75adc9c8fe3eb2fd3.stex" ]
+source_file="res://Parallax_efecto/bosque_noche/plant.png"
+dest_files=[ "res://.import/plant.png-509fff763bff4f041d03a1f422275e25.stex" ]
 
 [params]
 

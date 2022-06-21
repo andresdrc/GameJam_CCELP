@@ -2,9 +2,9 @@
 
 [ext_resource path="res://prueba/Sprute.png" type="Texture" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://sistema_comentarios/sistemma_comentarios.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sistema_comentarios/sistemma_comentarios.tscn" type="PackedScene" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
-[ext_resource path="res://ui_videojuego/UI_videojuego.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI_videojuego/UI_videojuego.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )

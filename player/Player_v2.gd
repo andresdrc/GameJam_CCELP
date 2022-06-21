@@ -35,6 +35,8 @@ var salto_largo = false
 
 var sistema_comentarios
 
+var vel_apuntar = 0.05
+
 
 func _ready():
 	$Flecha.rotation_degrees = -90
@@ -52,18 +54,21 @@ func _ready():
 
 func _physics_process(delta):
 	
+	direccion = move_and_slide_with_snap(direccion, Vector2.DOWN, Vector2.UP)
+	
 	if is_on_floor() and !apuntando:
 		direccion.x = lerp(direccion.x, velocidad, 0.03)
 	
 	if apuntando:
-		direccion.x = lerp(direccion.x, 0, 0.07)
+		direccion.x = lerp(direccion.x, 0, 0.09)
 	
 	if !is_on_floor():
 		direccion.y += gravedad
 		if salto_a or (direccion.x > -1 and direccion.x < 1) : 
-			direccion.x = lerp(direccion.x, velocidad, 0.05)
-		
-	direccion = move_and_slide_with_snap(direccion, Vector2.DOWN, Vector2.UP)
+			direccion.x = lerp(direccion.x, velocidad, 0.005 * (velocidad/7))
+	
+	if !is_on_floor() and direccion.x < (velocidad * 0.02) and direccion.x > -(velocidad * 0.02):
+		direccion.x = lerp(direccion.x, velocidad, 0.1)
 
 
 func _process(delta):
@@ -123,13 +128,16 @@ func _process(delta):
 		print("PUSH")
 		$AnimatedSprite.play("push")
 		$AnimatedSprite.flip_h = false
-	if direccion.x > 10 and direccion.x < 290 and is_on_floor():
+#	if direccion.x > 10 and direccion.x < 290 and is_on_floor():
+	if direccion.x > (velocidad * 0.03) and direccion.x < (velocidad * 0.96) and is_on_floor():
 		$AnimatedSprite.play("walk")
 		$AnimatedSprite.flip_h = false
-	if direccion.x > 290 and is_on_floor():
+#	if direccion.x > 290 and is_on_floor():
+	if direccion.x > (velocidad * 0.96) and is_on_floor():
 		$AnimatedSprite.play("run")
 		$AnimatedSprite.flip_h = false
-	if direccion.x < 60 and direccion.x > -60 and apuntando and is_on_floor() and apuntando:
+#	if direccion.x < 60 and direccion.x > -60 and apuntando and is_on_floor() and apuntando:
+	if direccion.x < (velocidad * 0.20) and direccion.x > -(velocidad * 0.20) and apuntando and is_on_floor() and apuntando:
 		$AnimatedSprite.play("idle")
 		$AnimatedSprite.flip_h = false
 	if !is_on_floor() and direccion.x > 0:
@@ -137,7 +145,7 @@ func _process(delta):
 	if !is_on_floor() and direccion.x < 0:
 		$AnimatedSprite.flip_h = true
 		$AnimatedSprite.play("jump")
-	print($AnimatedSprite.animation)
+#	print($AnimatedSprite.animation)
 
 	
 	camara.global_position.x = lerp(camara.global_position.x, self.global_position.x + 100, 0.08)
@@ -168,11 +176,13 @@ func mostrar_puntos():
 	#APUNTAR MANUAL
 		for i in puntos:
 	#		i.visible = false
-			if Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_right"):
-				angulo_salto = lerp_angle(angulo_salto, angulo_salto + 0.08, 0.01)
-			if  Input.is_action_pressed("ui_left")or Input.is_action_pressed("ui_down"):
-				angulo_salto = lerp_angle(angulo_salto, angulo_salto - 0.08, 0.01)
-
+#			if Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_right"):
+			if Input.is_action_pressed("ui_right"):
+				angulo_salto = lerp_angle(angulo_salto, angulo_salto + 0.08, vel_apuntar)
+#			if  Input.is_action_pressed("ui_left")or Input.is_action_pressed("ui_down"):
+			if  Input.is_action_pressed("ui_left"):
+				angulo_salto = lerp_angle(angulo_salto, angulo_salto - 0.08, vel_apuntar)
+				
 			i.position.x = (fuerza_salto * cos(angulo_salto) ) * t
 			i.position.y = (fuerza_salto * sin(angulo_salto) * t) - (-gravedad/2) * t * t
 			t = t + 0.5
