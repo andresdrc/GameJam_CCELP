@@ -25,6 +25,8 @@ func _ready():
 	
 	for i in cant_vidas_iniciales:
 		vect_vidas[i].visible = true
+	
+
 
 
 func actualizar_cant_vidas(cant : int):
@@ -32,12 +34,12 @@ func actualizar_cant_vidas(cant : int):
 	if cant <= 5:
 #		print("llego: ", cant)
 		if cant <= 0:
-			print("REINICIAR JUEGO")
+#			print("REINICIAR JUEGO")
 			get_tree().change_scene("res://menu_inicio/Menu_inicio.tscn")
 		
 		for i in vect_vidas:
 			i.visible = false
-#			print(i)
+			print(i)
 		
 		for i in cant:
 			vect_vidas[i].visible = true

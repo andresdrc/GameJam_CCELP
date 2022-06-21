@@ -343,3 +343,7 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tile13/StaticBody2D"]
 shape = SubResource( 24 )
+
+[node name="Tile14" type="Sprite" parent="."]
+position = Vector2( 287, 117 )
+texture = ExtResource( 2 )

@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sistema_comentarios/sistemma_comentarios.gd" type="Script" id=1]
 [ext_resource path="res://Sistema_comentarios/tema_comentarios.tres" type="Theme" id=2]
+[ext_resource path="res://sistema_comentarios/cuadro de dialogos.png" type="Texture" id=3]
+[ext_resource path="res://sistema_comentarios/tema_comentarios.tres" type="Theme" id=4]
+[ext_resource path="res://sistema_comentarios/arcade_button_red.png" type="Texture" id=5]
 
 [node name="Sistema_comentarios" type="CanvasLayer"]
 pause_mode = 2
@@ -20,25 +23,89 @@ margin_top = 48.0
 margin_right = 405.0
 margin_bottom = 334.0
 size_flags_horizontal = 7
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer"]
-margin_right = 798.0
-margin_bottom = 286.0
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 793.0
+margin_bottom = 281.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Tween" type="Tween" parent="Control/MarginContainer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 793.0
+margin_bottom = 281.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_constants/margin_right = 68
+custom_constants/margin_top = 25
+custom_constants/margin_left = 78
+custom_constants/margin_bottom = 27
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/MarginContainer"]
+margin_left = 78.0
+margin_top = 25.0
+margin_right = 720.0
+margin_bottom = 249.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
 theme = ExtResource( 2 )
 bbcode_enabled = true
-bbcode_text = "
-Hola, aquí Rainy actualizando su bitácora.
+bbcode_text = "Hola, aquí Rainy actualizando su bitácora.
 Mi nueva aventura me ha llevado a cruzar el universo y en el camino he conocido a las estrellas.
 Son seres increíbles. Espero contarles sus historias algún día.
 Hasta pronto.
 ¡No olviden ser asombrosos!"
-text = "
-Hola, aquí Rainy actualizando su bitácora.
+text = "Hola, aquí Rainy actualizando su bitácora.
 Mi nueva aventura me ha llevado a cruzar el universo y en el camino he conocido a las estrellas.
 Son seres increíbles. Espero contarles sus historias algún día.
 Hasta pronto.
 ¡No olviden ser asombrosos!"
 
-[node name="Tween" type="Tween" parent="Control/MarginContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -157.0
+margin_top = -161.0
+margin_right = 157.0
+custom_constants/margin_right = 15
+custom_constants/margin_top = 15
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer2"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 299.0
+margin_bottom = 146.0
+rect_min_size = Vector2( 284, 131 )
+custom_constants/separation = 19
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer2/HBoxContainer"]
+margin_right = 69.0
+margin_bottom = 131.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Control/MarginContainer2/HBoxContainer"]
+margin_left = 88.0
+margin_top = 50.0
+margin_right = 284.0
+margin_bottom = 81.0
+theme = ExtResource( 4 )
+text = "Continuar :  SALTAR"

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sonido_2.ogg-30e52cf03521ee4e94d019edeb41ce7e.oggstr"
+
+[deps]
+
+source_file="res://menu_inicio/sonido_2.ogg"
+dest_files=[ "res://.import/sonido_2.ogg-30e52cf03521ee4e94d019edeb41ce7e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

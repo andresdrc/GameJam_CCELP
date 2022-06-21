@@ -125,7 +125,7 @@ func _process(delta):
 	
 	
 	if direccion.x == 0 and !apuntando:
-		print("PUSH")
+#		print("PUSH")
 		$AnimatedSprite.play("push")
 		$AnimatedSprite.flip_h = false
 #	if direccion.x > 10 and direccion.x < 290 and is_on_floor():
@@ -212,13 +212,13 @@ func actualizar_vida(cant : int):
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("enemigo"):
 		actualizar_vida( cant_vidas -1)
-		print(cant_vidas)
+#		print(cant_vidas)
 		ui_juego.actualizar_cant_vidas(cant_vidas)
 		
 	if area.is_in_group("vida"):
 		if cant_vidas < cant_vida_max:
 			actualizar_vida( cant_vidas + 1)
-			print("cant v: ", cant_vidas)
+#			print("cant v: ", cant_vidas)
 			ui_juego.actualizar_cant_vidas(cant_vidas)
 	
 	if area.is_in_group("comentario_1"):
