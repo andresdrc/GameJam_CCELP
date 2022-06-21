@@ -1,10 +1,28 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Sistema_comentarios/sistemma_comentarios.gd" type="Script" id=1]
-[ext_resource path="res://Sistema_comentarios/tema_comentarios.tres" type="Theme" id=2]
-[ext_resource path="res://sistema_comentarios/cuadro de dialogos.png" type="Texture" id=3]
-[ext_resource path="res://sistema_comentarios/tema_comentarios.tres" type="Theme" id=4]
-[ext_resource path="res://sistema_comentarios/arcade_button_red.png" type="Texture" id=5]
+[ext_resource path="res://Sistema_comentarios/z.png" type="Texture" id=2]
+[ext_resource path="res://Sistema_comentarios/cuadro de dialogos.png" type="Texture" id=3]
+[ext_resource path="res://Sistema_comentarios/tema_comentarios.tres" type="Theme" id=4]
+[ext_resource path="res://Sistema_comentarios/arcade_button_red.png" type="Texture" id=5]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 60, 61 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 60, 0, 60, 61 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="Sistema_comentarios" type="CanvasLayer"]
 pause_mode = 2
@@ -59,7 +77,7 @@ margin_right = 720.0
 margin_bottom = 249.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
-theme = ExtResource( 2 )
+theme = ExtResource( 4 )
 bbcode_enabled = true
 bbcode_text = "Hola, aquí Rainy actualizando su bitácora.
 Mi nueva aventura me ha llevado a cruzar el universo y en el camino he conocido a las estrellas.
@@ -94,7 +112,7 @@ rect_min_size = Vector2( 284, 131 )
 custom_constants/separation = 19
 
 [node name="TextureRect" type="TextureRect" parent="Control/MarginContainer2/HBoxContainer"]
-margin_right = 116.0
+margin_right = 85.0
 margin_bottom = 131.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -103,9 +121,14 @@ expand = true
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="Control/MarginContainer2/HBoxContainer"]
-margin_left = 135.0
+margin_left = 104.0
 margin_top = 50.0
 margin_right = 284.0
 margin_bottom = 81.0
 theme = ExtResource( 4 )
 text = "Continuar :   Z x2"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Control/MarginContainer2/HBoxContainer"]
+position = Vector2( 44, 60 )
+scale = Vector2( 1.53333, 1.53333 )
+frames = SubResource( 3 )

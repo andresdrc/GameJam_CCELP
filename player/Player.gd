@@ -235,11 +235,11 @@ func _on_Area2D_area_entered(area):
 			sprite_estrellas.visible = true
 		
 	if area.is_in_group("tutorial_1"):
-		sistema_comentarios.mostrando_comentarios = true
-		sistema_comentarios.mostrar_comentario("tutorial_1")
+#		sistema_comentarios.mostrando_comentarios = true
+#		sistema_comentarios.mostrar_comentario("tutorial_1")
 		area.queue_free()
 		salto_corto_activado = true
-		get_tree().paused = true
+#		get_tree().paused = true
 	if area.is_in_group("tutorial_2"):
 		sistema_comentarios.mostrando_comentarios = true
 		sistema_comentarios.mostrar_comentario("tutorial_2")
@@ -268,6 +268,8 @@ func _on_Area2D_area_entered(area):
 		get_tree().paused = true
 	if area.is_in_group("fin_nivel_1"):
 		get_tree().change_scene("res://mundo/mundo_2/Mundo_2.tscn")
+	if area.is_in_group("salir_nivel"):
+		get_tree().change_scene("res://menu_inicio/Menu_inicio.tscn")
 
 func _on_Area2D_area_exited(area):
 	if area.is_in_group("aviso_estrellas"):

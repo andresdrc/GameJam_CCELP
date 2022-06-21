@@ -264,11 +264,12 @@ text = "Pixeles"
 position = Vector2( 227, 99 )
 scale = Vector2( 2.83721, 2.83721 )
 frames = SubResource( 13 )
-frame = 1
+frame = 9
 playing = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+volume_db = -10.0
 autoplay = true
 
 [connection signal="pressed" from="MarginContainer/Button" to="." method="_on_Button_pressed"]

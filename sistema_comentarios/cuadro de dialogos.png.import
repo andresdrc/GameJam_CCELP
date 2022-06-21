@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cuadro de dialogos.png-3d50d18113ed51746d381234c469475e.stex"
+path="res://.import/cuadro de dialogos.png-a402acda2da7ed246ee9b6de3c1627ee.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sistema_comentarios/cuadro de dialogos.png"
-dest_files=[ "res://.import/cuadro de dialogos.png-3d50d18113ed51746d381234c469475e.stex" ]
+source_file="res://Sistema_comentarios/cuadro de dialogos.png"
+dest_files=[ "res://.import/cuadro de dialogos.png-a402acda2da7ed246ee9b6de3c1627ee.stex" ]
 
 [params]
 
