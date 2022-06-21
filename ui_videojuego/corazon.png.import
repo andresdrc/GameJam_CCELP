@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/corazon.png-b6164655d0fae535a727e7007e195bf4.stex"
+path="res://.import/corazon.png-07e8f2e79baa5afb6433108868e1c788.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI_videojuego/corazon.png"
-dest_files=[ "res://.import/corazon.png-b6164655d0fae535a727e7007e195bf4.stex" ]
+source_file="res://ui_videojuego/corazon.png"
+dest_files=[ "res://.import/corazon.png-07e8f2e79baa5afb6433108868e1c788.stex" ]
 
 [params]
 
