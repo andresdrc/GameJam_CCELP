@@ -18,6 +18,7 @@ motion_mirroring = Vector2( 1910, 0 )
 
 [node name="Sprite" type="Sprite" parent="Fondo"]
 position = Vector2( 983, 266 )
+scale = Vector2( 1, 2.08 )
 texture = ExtResource( 3 )
 
 [node name="Nube_1" type="ParallaxLayer" parent="."]
@@ -27,6 +28,7 @@ motion_mirroring = Vector2( 1920, 0 )
 
 [node name="Sprite" type="Sprite" parent="Nube_1"]
 position = Vector2( 983, 266 )
+scale = Vector2( 1, 2.12 )
 texture = ExtResource( 1 )
 
 [node name="Nube_2" type="ParallaxLayer" parent="."]
@@ -36,6 +38,7 @@ motion_mirroring = Vector2( 1920, 0 )
 
 [node name="Sprite" type="Sprite" parent="Nube_2"]
 position = Vector2( 983, 266 )
+scale = Vector2( 1, 2.08 )
 texture = ExtResource( 4 )
 
 [node name="terreno_1" type="ParallaxLayer" parent="."]
@@ -44,6 +47,7 @@ motion_mirroring = Vector2( 1920, 0 )
 
 [node name="Sprite" type="Sprite" parent="terreno_1"]
 position = Vector2( 983, 266 )
+scale = Vector2( 1, 2.08 )
 texture = ExtResource( 5 )
 
 [node name="terreno_2" type="ParallaxLayer" parent="."]
@@ -52,6 +56,7 @@ motion_mirroring = Vector2( 1920, 0 )
 
 [node name="Sprite" type="Sprite" parent="terreno_2"]
 position = Vector2( 983, 266 )
+scale = Vector2( 1, 2.08 )
 texture = ExtResource( 7 )
 
 [node name="terreno_3" type="ParallaxLayer" parent="."]
@@ -60,4 +65,5 @@ motion_mirroring = Vector2( 1920, 0 )
 
 [node name="Sprite" type="Sprite" parent="terreno_3"]
 position = Vector2( 983, 266 )
+scale = Vector2( 1, 2.08 )
 texture = ExtResource( 6 )

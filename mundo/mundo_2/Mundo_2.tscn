@@ -23,7 +23,7 @@ script = ExtResource( 8 )
 [node name="ParallaxDetras" parent="." instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 12008, -420 )
+position = Vector2( 25, 494 )
 apunte_automatico = false
 salto_corto_activado = true
 salto_largo_activado = true
@@ -162,6 +162,15 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aviso_estrellas30"]
+shape = SubResource( 1 )
+
+[node name="Aviso_estrellas31" type="Area2D" parent="." groups=["aviso_estrellas"]]
+position = Vector2( 15708, -413 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aviso_estrellas31"]
 shape = SubResource( 1 )
 
 [node name="Items" type="Node2D" parent="."]

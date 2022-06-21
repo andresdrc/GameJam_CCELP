@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://mundo/tiles/tilesNuevos.tres" type="TileSet" id=1]
 [ext_resource path="res://Parallax_efecto/ParallaxBackground.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://checkpoint/CheckpointStar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sistema_comentarios/sistemma_comentarios.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI_videojuego/UI_videojuego.tscn" type="PackedScene" id=9]
+[ext_resource path="res://mundo/x.png" type="Texture" id=10]
+[ext_resource path="res://mundo/z.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 66, 52 )
@@ -18,6 +20,37 @@ extents = Vector2( 83, 47 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 53, 33 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 60, 0, 60, 61 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 60, 61 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 60, 0, 60, 61 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
 
 [node name="Mundo_1" type="Node2D"]
 position = Vector2( 19, -2 )
@@ -34,7 +67,7 @@ tile_data = PoolIntArray( 331, 1, 0, 332, 13, 0, 333, 13, 0, 334, 13, 0, 335, 13
 [node name="ParallaxBackground" parent="." instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 11080, 283 )
+position = Vector2( -652, 95 )
 apunte_automatico = false
 salto_corto_activado = true
 salto_largo_activado = true
@@ -81,7 +114,7 @@ position = Vector2( 9589, 475 )
 [node name="Comentarios" type="Node2D" parent="."]
 
 [node name="Tutorial_1" type="Area2D" parent="Comentarios" groups=["tutorial_1"]]
-position = Vector2( 151, 461 )
+position = Vector2( 234, -24 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -90,7 +123,7 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="Inicio" type="Area2D" parent="Comentarios" groups=["inicio"]]
-position = Vector2( -279, 460 )
+position = Vector2( -459, 442 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -108,7 +141,7 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="Tutorial_2" type="Area2D" parent="Comentarios" groups=["tutorial_2"]]
-position = Vector2( 4913, 457 )
+position = Vector2( 1510, -166 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -307,3 +340,16 @@ shape = SubResource( 1 )
 
 [node name="CheckpointStar6" parent="." instance=ExtResource( 7 )]
 position = Vector2( -377, 478 )
+
+[node name="SpriteZ" type="AnimatedSprite" parent="."]
+position = Vector2( 310, 456 )
+scale = Vector2( 0.433333, 0.433333 )
+frames = SubResource( 5 )
+playing = true
+
+[node name="SpriteX" type="AnimatedSprite" parent="."]
+position = Vector2( 5179, 397 )
+scale = Vector2( 0.433333, 0.433333 )
+frames = SubResource( 8 )
+frame = 1
+playing = true
